@@ -6,15 +6,14 @@
 /*   By: estebancervantes <estebancervantes@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 00:35:24 by estebancerv       #+#    #+#             */
-/*   Updated: 2026/03/08 21:16:15 by estebancerv      ###   ########.fr       */
+/*   Updated: 2026/03/08 23:45:22 by estebancerv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-int	is_safe(int **grid, int size, int row, int col, int num)
+int	validation_rep(int **grid, int size, int row, int col, int num)
 {
 	int	i;
 
@@ -196,14 +195,14 @@ int	push_number(int **grid, int **input, int size, int pos)
 	int	col;
 	int	num;
 
-	if (pos == size * size)
-		return (validation_rules(grid, input, size));
 	row = pos / size;
 	col = pos % size;
 	num = 1;
+	if (pos == size * size)
+		return (validation_rules(grid, input, size));
 	while (num <= size)
 	{
-		if (is_safe(grid, size, row, col, num))
+		if (validation_rep(grid, size, row, col, num))
 		{
 			grid[row][col] = num;
 			if (push_number(grid, input, size, pos + 1))
@@ -244,7 +243,7 @@ int	**init_grid(int size)
 int	main(void)
 {
 	int	size = 5;
-	int **grid;
+	int	**grid;
 	int *input[5];
 
 	grid = init_grid(size);
@@ -258,8 +257,6 @@ int	main(void)
 	input[1] = input02;
 	input[2] = input03;
 	input[3] = input04;
-
-	int	*all_views[size];
 
 	if (push_number(grid, input, size, 0))
 		print_grid(grid, size);

@@ -1,1 +1,1 @@
-# 42piscine projects
+# 42 piscine projects
