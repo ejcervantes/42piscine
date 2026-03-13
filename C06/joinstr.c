@@ -40,9 +40,14 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 
 	i = 0;
 	k = 0;
-	if (size <= 0 || strs == NULL)
-		return ("");
-	newstr = malloc(sizeof(char) * (get_all_len(strs, size) + get_len(sep) * (size - 1)) + 1);
+	if (size <= 0)
+	{
+		newstr = malloc(sizeof(char) * 1);
+		if (newstr != NULL)
+			newstr[0] = '\0';
+		return (newstr);
+	}
+	newstr = malloc(sizeof(char) * (get_all_len(strs, size) + (get_len(sep) * (size - 1)) + 1));
 	if (newstr == NULL)
 		return (0);
 	while (i < size)
@@ -59,12 +64,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (newstr);
 }
 
-// int	main(void)
-// {
-// 	int	size = 1;
-// 	char *str[] = {"Hello"};
-// 	char *sep = ",";
+int	main(void)
+{
+	int	size = 2;
+	char *str[] = {"Hello", "World"};
+	char *sep = ", ";
 
-// 	printf("%s", ft_strjoin(2, str, ""));
-// 	printf("%d", (get_all_len(str, size) + get_len(sep) * (size - 1)) + 1);
-// }
+	printf("%s", ft_strjoin(size, str, sep));
+	printf("%d", (get_all_len(str, size) + get_len(sep) * (size - 1)) + 1);
+}
