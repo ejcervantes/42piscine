@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/02/26 10:43:44 by ecervant          #+#    #+#             */
+/*   Updated: 2026/02/26 12:27:07 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_ft(int *nbr)
 {
-	int		i;
-	int		j;
-	char	*name;
-
-	j = 1;
-	while (j < argc)
-	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
-	}
+	*nbr = 42;
 }
+
+// int	main(void)
+// {
+// 	int	a;
+// 	int	*pointer;
+
+// 	a = 23;
+// 	pointer = &a;
+// 	ft_ft(pointer);
+// 	write(1, &a, 3);
+// 	return (0);
+// }

@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/17 21:18:24 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/18 12:33:53 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-int	main(int argc, char *argv[])
-{
-	int		i;
-	int		j;
-	char	*name;
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+# define TRUE 1
+# define FALSE 0
+# define EVEN(x) ((x) % 2 == 0)
 
-	j = 1;
-	while (j < argc)
-	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
-	}
-}
+typedef int	t_bool;
+
+void	ft_putstr(char *str);
+t_bool	ft_is_even(int nbr);
+
+#endif

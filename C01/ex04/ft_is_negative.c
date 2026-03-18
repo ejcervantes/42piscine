@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/02/25 16:16:26 by ecervant          #+#    #+#             */
+/*   Updated: 2026/02/25 17:29:30 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_is_negative(int n)
 {
-	int		i;
-	int		j;
-	char	*name;
+	char	r;
 
-	j = 1;
-	while (j < argc)
+	if (n < 0)
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		r = 'N';
 	}
+	else
+	{
+		r = 'P';
+	}
+	write(1, &r, 1);
 }
+
+// int	main(void)
+// {
+// 	ft_is_negative(-10);
+// 	ft_is_negative(10);
+// 	return (0);
+// }

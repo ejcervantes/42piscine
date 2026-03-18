@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/10 22:49:37 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/12 13:44:10 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	main(int argc, char *argv[])
+int	ft_sqrt(int nb)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	i;
 
-	j = 1;
-	while (j < argc)
-	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+	i = 1;
+	while (nb % i != 0 || nb / i != i)
+	{	
+		if (i > nb / 2)
+			return (0);
+		i++;
 	}
+	return (i);
 }
+
+// int main(void)
+// {
+// 	printf("%d", ft_sqrt(-9));
+// }

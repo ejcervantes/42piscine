@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/02 13:43:50 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/03 14:31:37 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	main(int argc, char *argv[])
+int	ft_str_is_uppercase(char *str)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	i;
 
-	j = 1;
-	while (j < argc)
+	i = 0;
+	while (str[i] != 0)
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		if (str[i] < 'A' || str[i] > 'Z')
+		{
+			return (0);
+		}
+		i++;
 	}
+	return (1);
 }
+
+// int main(void)
+// {
+// 	char	*first;
+// 	char	second[4];
+// 	int		i;
+
+// 	i = 0;
+// 	first = "LKDMKLDSA";
+// 	i = ft_str_is_uppercase(first);
+// 	printf("%d", i);
+
+// 	return (0);
+// }

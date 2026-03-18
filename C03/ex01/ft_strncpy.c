@@ -1,27 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:30 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 15:14:19 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/02 11:08:16 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/04 15:10:38 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-int	main(int argc, char *argv[])
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int		i;
-	char	*name;
+	unsigned int	i;
 
-	argc = 0;
 	i = 0;
-	name = argv[argc];
-	while (name[i] != 0)
-		write (1, &name[i++], 1);
-	write (1, "\n", 1);
+	while (i < n && src[i] != 0)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = 0;
+		i++;
+	}
+	return (dest);
 }
+
+// int main(void)
+// {
+// 	char	*first;
+// 	char	second[4];
+// 	int		i;
+
+// 	i = 0;
+// 	first = "Word of";
+// 	ft_strncpy(second, first, 10);
+// 	while(second[i] != 0)
+// 	{
+// 		write(1, &second[i], 1);
+// 		i++;
+// 	}
+
+// 	return (0);
+// }

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/02 17:35:43 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/03 14:30:05 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+char	*ft_strlowcase(char *str)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	i;
 
-	j = 1;
-	while (j < argc)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
+		i++;
 	}
+	str[i] = '\0';
+	return (str);
 }
+
+// int main(void)
+// {
+// 	char	first[] = "Hello World";
+
+// 	// second = ft_strupcase(first);
+// 	// write(1, &i, 1);
+// 	printf("%s\n", ft_strlowcase(first));
+
+// 	return (0);
+// }

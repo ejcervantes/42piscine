@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/10 23:16:05 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/12 14:56:56 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	main(int argc, char *argv[])
+int	ft_is_prime(int nb)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	i;
 
-	j = 1;
-	while (j < argc)
+	i = 2;
+	if (nb <= 1)
+		return (0);
+	while (i < nb)
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
+	return (1);
 }
+
+int	ft_find_next_prime(int nb)
+{
+	while (!ft_is_prime(nb))
+		nb++;
+	return (nb);
+}
+
+// int	main(void)
+// {
+// 	printf("%d\n", ft_find_next_prime(5));
+// }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/02/25 15:41:38 by ecervant          #+#    #+#             */
+/*   Updated: 2026/02/25 17:27:18 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_print_numbers(void)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	c;
 
-	j = 1;
-	while (j < argc)
+	c = 48;
+	while (c <= 57)
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		write(1, &c, 1);
+		c++;
 	}
 }
+
+// int	main(void)
+// {
+// 	ft_print_numbers();
+// 	return (0);
+// }

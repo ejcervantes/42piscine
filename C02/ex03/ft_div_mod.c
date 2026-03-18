@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/02/26 12:52:04 by ecervant          #+#    #+#             */
+/*   Updated: 2026/02/26 18:35:47 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+// #include <stdio.h>
 
-int	main(int argc, char *argv[])
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	int		i;
-	int		j;
-	char	*name;
-
-	j = 1;
-	while (j < argc)
-	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
-	}
+	*div = a / b;
+	*mod = a % b;
 }
+
+// int	main(void)
+// {
+// 	int	res;
+// 	int	mod;
+// 	int	*pres;
+// 	int	*pmod;
+
+// 	pres = &res;
+// 	pmod = &mod;
+// 	ft_div_mod(103, 2, pres, pmod);
+// 	printf("%d", res);
+// 	printf("%d", mod);
+// 	return (0);
+// }

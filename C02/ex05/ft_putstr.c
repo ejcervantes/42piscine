@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:38 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 12:53:34 by ecervant         ###   ########.fr       */
+/*   Created: 2026/02/26 13:53:21 by ecervant          #+#    #+#             */
+/*   Updated: 2026/02/26 18:36:00 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_putstr(char *str)
 {
-	int		i;
-	int		j;
-	char	*name;
+	int	i;
 
-	j = 1;
-	while (j < argc)
+	i = 0;
+	while (str[i] != 0)
 	{
-		i = 0;
-		name = argv[j];
-		while (name[i] != 0)
-			write(1, &name[i++], 1);
-		write(1, "\n", 1);
-		j++;
+		write(1, &str[i], 1);
+		i++;
 	}
 }
+
+// int	main(void)
+// {
+// 	char	*newstr;
+
+// 	newstr = "LOL dnskalnl nodnsal";
+// 	ft_putstr(newstr);
+// 	return (0);
+// }

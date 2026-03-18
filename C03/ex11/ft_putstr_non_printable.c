@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecervant <ecervant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 12:51:30 by ecervant          #+#    #+#             */
-/*   Updated: 2026/03/12 15:14:19 by ecervant         ###   ########.fr       */
+/*   Created: 2026/03/03 10:48:46 by ecervant          #+#    #+#             */
+/*   Updated: 2026/03/03 14:33:32 by ecervant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_putstr_non_printable(char *str)
 {
 	int		i;
-	char	*name;
+	char	*hex;
 
-	argc = 0;
 	i = 0;
-	name = argv[argc];
-	while (name[i] != 0)
-		write (1, &name[i++], 1);
-	write (1, "\n", 1);
+	hex = "0123456789abcdef";
+	while (str[i] != 0)
+	{
+		if (str[i] < 32 || str[i] > 126)
+		{
+			write(1, "\\", 1);
+			write(1, &hex[str[i] / 16], 1);
+			write(1, &hex[str[i] % 16], 1);
+		}
+		else
+			write(1, &str[i], 1);
+		i++;
+	}
 }
+
+// int main(void)
+// {
+// 	char	first[] = "Hello\nHow are you?";
+// 	char    second[5];
+
+// 	ft_putstr_non_printable(first);
+
+// 	return (0);
+// }
